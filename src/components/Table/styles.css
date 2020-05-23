@@ -1,0 +1,47 @@
+#list-table{
+    margin-top: 2vh;
+    height: 50vh;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+#list-table tbody{
+    display: block;
+    max-height: 40vh;
+    width: auto;
+    overflow:auto;
+}
+#list-table tbody tr{
+    width: 100%;
+}
+#list-table tbody th{
+    height: 7vh;
+    min-width:100px;
+    width: 250px;
+    max-width: 250px;
+}
+#list-table tbody td{
+    text-align: center;
+    height: 5vh;
+    width: auto 10vw;
+}
+#list-table tbody::-webkit-scrollbar {
+    display: none;
+}
+#fourButton1{
+    height: 3vh;
+    width: 6vw;
+    border: none;
+    border-radius: 2px;
+    background: rgba(196, 196, 196, 0.5);
+    box-shadow: none;
+    
+}
+#fourButton2{
+    height: 4vh;
+    width: 7vw;
+    border: none;
+    background: #8772BD;
+    border-radius: 2px;
+    box-shadow: none;
+}

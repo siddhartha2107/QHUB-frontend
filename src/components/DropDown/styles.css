@@ -1,0 +1,23 @@
+#dropDownDiv{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+#dropDownDivSpan{
+    width: 10vw;
+}
+#chooseSubject{
+    height: 6vh;
+    float: right;
+    width: 60%;
+    margin-top: 2vh;
+    margin-left: 10%;
+    margin-right: 10%;
+    background: #F8F9F9;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    padding-left: 2vw;
+}

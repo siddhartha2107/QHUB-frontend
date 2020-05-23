@@ -1,0 +1,44 @@
+.top{
+    color:black;
+    font-size: 24px;
+    font-weight: bold;
+    /* padding-top: 1vh;
+    padding-bottom: 1vh; */
+    height: 9vh;
+    align-items: center;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    
+
+}
+#top-left-title{
+    margin-left: 1vw;
+}
+.top-left{
+    margin-left: 7vw;
+}
+.top-right{
+    margin-right: 7vw;
+    flex-direction: row;
+}
+.top-right button{
+    /* display: flex; */
+    font-size: 15px;
+    height: 6vh;
+    width:13vw;
+    border-color: transparent;
+    margin-right:1vw;
+    font-weight: bold;
+    border-radius: 3px;
+}
+#top-right-upload{
+    color:#3E7DDB;
+    background-color:#DBE9FF
+}
+
+#top-right-log{
+    color: white;
+    background-color:#3E7DDB;
+}

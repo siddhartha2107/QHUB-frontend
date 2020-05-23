@@ -1,0 +1,6 @@
+#myModal{
+    display: flex;
+    height: 40vh;
+    flex-direction: column;
+    justify-content: flex-start;
+}
