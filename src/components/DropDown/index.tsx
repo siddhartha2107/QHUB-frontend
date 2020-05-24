@@ -9,11 +9,9 @@ export interface Idropdown{
 }
 
 export const DropDown:React.FC<Idropdown>=(props:Idropdown)=>{
-    const [data,setData] = React.useState([]);
     const dropdownItems:any= [];
 
     props.DropDownItems.forEach(x=>{
-        // console.log(x)
         dropdownItems.push(<option>{x}</option>)
     })
     

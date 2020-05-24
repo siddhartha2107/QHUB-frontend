@@ -15,10 +15,6 @@ export interface IaddUnit{
 
 export const AddUnit:React.FC<IaddUnit>=(props:IaddUnit)=>{
 
-    const tableItems:any=[];
-    const [unitName,setUnitName] = React.useState('')
-    const [unitNo,setUnitNo] = React.useState('')
-    const [outcomeId,setOutcomeId] = React.useState('')
     const [selectedSubjectId,setSelectedSubjectId] = React.useState('')
     const [fetchData,setFetchData] = React.useState(0); //Controls Get call
     const [subjectDefVal,setSubjectDefVal] = React.useState('Choose Subject');
@@ -28,13 +24,16 @@ export const AddUnit:React.FC<IaddUnit>=(props:IaddUnit)=>{
     const [units,setUnits] = React.useState([]);
     const [selectedSubjectCode,setSelectedSubjectCode] = React.useState('')
     const [noOfRow,setNoOfRow] = React.useState(3);
+    const [tableHeight,setTableHeight] = React.useState('40vh');
     //DropDown
     const [dropdown,setDropDown] = React.useState('');
     const [dropdownList,setDropDownList] = React.useState([]);
     //ModalStates
     const [modalIsOpen,setIsOpen] = React.useState(false);
+    const [unitName,setUnitName] = React.useState('')
+    const [unitNo,setUnitNo] = React.useState('')
+    const [outcomeId,setOutcomeId] = React.useState('')
     const [postItem,setPostItem] = React.useState(0);
-    const [tableHeight,setTableHeight] = React.useState('40vh');
     const [modalBody,setModalBody] =React.useState(
         <>
             <span>Add the Unit details here</span>

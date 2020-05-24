@@ -15,10 +15,13 @@ export interface IBody{
 }
 
 export const Body:React.FC<IBody>=(props:IBody)=>{
-	const [subjects,setSubjects]= React.useState([]);
 	const [modalIsOpen,setIsOpen] = React.useState(false);
 	const [unitId,setUnitId] = React.useState('')
-
+	const [fetchData,setFetchData] = React.useState(0);
+	
+	//Subject States
+	const [subjects,setSubjects]= React.useState([]);
+	
 	const subjectHandler=(arg0:any)=>{
 		setSubjects(subjects=>subjects.concat(arg0))
   	}
@@ -31,20 +34,24 @@ export const Body:React.FC<IBody>=(props:IBody)=>{
 
 	const project = () => {
 		if(!localStorage.getItem("token")){
-		props.PageHandler(1);
+			props.PageHandler(1);
 		}
 		switch(props.Page) {
 			case 1: if(localStorage.getItem("token")){
-					props.PageHandler(2);
-				} else
-				return <Login 			Page={props.Page}
-										PageHandler={props.PageHandler}/>;
+						props.PageHandler(2);
+					} else
+					return <Login 		
+										Page={props.Page}
+										PageHandler={props.PageHandler}
+										/>;
 			case 2: return <AddSubject	
 										Subjects={subjects}
 										SetSubjects={setSubjects}
 										SubjectHandler={subjectHandler} 
 										ModalIsOpen={modalIsOpen}
 										ModalHandler={modalHandler} 
+										FetchData={fetchData}
+										SetFetchData={setFetchData}
 										/>;
 			case 3: return <AddUnit 	
 										Subjects={subjects}

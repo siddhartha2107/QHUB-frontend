@@ -40,6 +40,7 @@ export const CreateAssignment:React.FC<IaddAssignment>=(props:IaddAssignment)=>{
     const [typeDefVal,setTypeDefValue] = React.useState('Generation Type')
     const [postItem, setPostItem] = React.useState(0);
     const [fetchData, setFetchData] = React.useState(0);
+    const [id,setId] = React.useState('');
 
     const typeDropDownHandler=(arg0:string)=>{
         setType(arg0);

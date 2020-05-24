@@ -27,6 +27,7 @@ export const AddQuestion:React.FC<IaddQuestion>=(props:IaddQuestion)=>{
     const [noOfRow,setNoOfRow] = React.useState(5);
     const [subjectDefVal,setSubjectDefVal] = React.useState('Choose Subject');
     const [unitDefVal,setUnitDefVal] = React.useState('Choose Unit');
+    
     //DropDown
     const [units,setUnits] = React.useState([]);
     const [subjectDropDown,setSubjectDropDown] = React.useState('');
@@ -65,6 +66,8 @@ export const AddQuestion:React.FC<IaddQuestion>=(props:IaddQuestion)=>{
         setUnits(units=>units.concat(arg0))
     }
     const handleQuestionChange=(arg0:string)=>{
+        
+        setQuestion(arg0);
         axios .post("http://localhost:8079/predict",{
             "question":arg0
         },{

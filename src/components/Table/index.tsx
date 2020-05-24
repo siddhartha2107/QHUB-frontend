@@ -17,45 +17,44 @@ export const Table:React.FC<Itable>=(props:Itable)=>{
     const [data,setData] = React.useState([]);
     const tableItems:any= [];
     const tableHeaders:any= [];
-    const [postItem,setPostItem] = React.useState(0);
-    const [postItem2,setPostItem2] = React.useState(0);
     var id:any;
-    useEffect(()=>{
-        if(postItem>0){
-            axios .get("http://localhost:8089/api/assignment/generateAssignment",{
-                headers: {
-                    "token":localStorage.getItem('token')
-                },
-                params:{
-                    "id":id
-                }
-            })
-
-        }
-    },[postItem])
-    useEffect(()=>{
-        if(postItem2>0){
-            axios .get("http://localhost:/api/assignment/postToInfoconnect",{
-                headers: {
-                    "token":localStorage.getItem('token')
-                },
-                params:{
-                    "id":id
-                }
-            })
-        }
-    },[postItem2])
+    
+    const downloadHandler=(arg0:any)=>{
+        axios .get("http://localhost:8089/api/assignment/generateAssignment",{
+            headers: {
+                "token":localStorage.getItem('token')
+            },
+            params:{
+                "id":arg0
+            },
+            responseType:"blob"
+        })
+        .then(function(res:any){
+            console.log("RES.DATA",res.data);
+            const url = window.URL.createObjectURL(new Blob([res.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'response.docx'); //or any other extension
+            link.click();
+        })
+    }
+    const infoconnectHandler=(arg0:any)=>{
+        axios .get("http://localhost:808/api/assignment/postToInfoconnect",{
+            headers: {
+                "token":localStorage.getItem('token')
+            },
+            params:{
+                "id":arg0
+            }
+        })
+    }
 
     props.Data.forEach((x:any)=>{
         
-        var arr=[]
+        var arr:any=[]
         var row=[]
         for(var key in x){
             for(var colID in props.Columns){
-
-                // if(x[props.Columns[colID]]==null){
-                //     arr.push("");
-                // }
                 if(props.Columns[colID]=='image'){
                     if(x[props.Columns[colID]]){
                         arr.push(x[props.Columns[colID]]);
@@ -69,8 +68,6 @@ export const Table:React.FC<Itable>=(props:Itable)=>{
             }
         }
         
-        // console.log("Arr",arr)
-        // console.log("Column",props.Columns)
         if(props.NoOfRow==3)
         {
             tableItems.push(<tr>
@@ -80,7 +77,10 @@ export const Table:React.FC<Itable>=(props:Itable)=>{
             </tr>)
         }
         else if(props.NoOfRow==5){
+            id=arr[0];
+            console.log("id:-",id,"arr[0]:-",arr[0]);
             console.log("Arr4:",arr[4],"|")
+
             if(arr[4]=='-'){
                 tableItems.push(<tr>
                     <td>{arr[0]}</td>
@@ -105,8 +105,8 @@ export const Table:React.FC<Itable>=(props:Itable)=>{
             tableItems.push(<tr>
                 <td>{arr[0]}</td>
                 <td>Assignment {arr[1]}</td>
-                <td><button id="fourButton1" onClick={()=>{setPostItem(postItem+1)}}><img src={downloadicon}></img>Download</button></td>
-                <td><button id="fourButton2" onClick={()=>{setPostItem2(postItem2+1)}}>Post to Infoconnect</button></td>
+                <td><button id="fourButton1" onClick={()=>{downloadHandler(arr[0])}}><img src={downloadicon}></img>Download</button></td>
+                <td><button id="fourButton2" onClick={()=>{infoconnectHandler(arr[0])}}>Post to Infoconnect</button></td>
             </tr>)
         }
         
