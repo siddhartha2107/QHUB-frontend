@@ -28,7 +28,7 @@ export const Assignment:React.FC<IaddAssignment>=(props:IaddAssignment)=>{
     const [maxMarks, setMaxMarks] = React.useState('');
     const [minMarks, setMinMarks] = React.useState('');
     const [fetchData,setFetchData] = React.useState(0); //Controls Get call
-    const [noOfRow,setNoOfRow] = React.useState(4);
+    const [nameOfPage,setNameOfPage] = React.useState('assignment');
     const [subjectDefVal,setSubjectDefVal] = React.useState('Choose Subject');
     const [unitDefVal,setUnitDefVal] = React.useState('Choose Unit');
     //DropDown
@@ -123,6 +123,7 @@ export const Assignment:React.FC<IaddAssignment>=(props:IaddAssignment)=>{
                 }
             )
             .then(function(res:any) {
+                console.log("RES",res.data);
                 assignmentHandler(res.data);
             });
         }
@@ -132,7 +133,7 @@ export const Assignment:React.FC<IaddAssignment>=(props:IaddAssignment)=>{
         ["ID","Assignment","Download","On Infoconnect"].forEach((x:any)=>{
             setAssignmentHeader(assignmentHeader=>assignmentHeader.concat(x))
         });
-        ["id","assignment_no","min_marks","max_marks","image"].forEach((x:any)=>{
+        ["id","assignment_no"].forEach((x:any)=>{
             setColumn(column=>column.concat(x));
         });
         props.Subjects.forEach((x:any)=>{
@@ -212,7 +213,7 @@ export const Assignment:React.FC<IaddAssignment>=(props:IaddAssignment)=>{
                             Data={assignmentList}
                             Columns={column}
                             TableHeight={tableHeight}
-                            NoOfRow={noOfRow}/>
+                            NameOfPage={nameOfPage}/>
                     <div id="assignment-btm">
                         <button id="add-subject-btn" onClick={()=>props.PageHandler(7)}>Add Subject</button>
                         

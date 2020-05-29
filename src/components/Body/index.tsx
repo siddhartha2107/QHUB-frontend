@@ -15,10 +15,21 @@ export interface IBody{
 }
 
 export const Body:React.FC<IBody>=(props:IBody)=>{
-	const [modalIsOpen,setIsOpen] = React.useState(false);
-	const [unitId,setUnitId] = React.useState('')
-	const [fetchData,setFetchData] = React.useState(0);
 	
+	const [unitId,setUnitId] = React.useState('')
+	//Common State
+	const [fetchData,setFetchData] = React.useState(0);
+	//Table State
+	const [column,setColumn] = React.useState([]);
+	const [header,setHeader] = React.useState([]);
+	const [nameOfPage,setNameOfPage] = React.useState('');
+	const [tableHeight,setTableHeight] = React.useState('34vh');
+	//Modal State
+	const [modalIsOpen,setIsOpen] = React.useState(false);
+	const [postItem,setPostItem] = React.useState(0);
+	const [newSubjectName,setNewSubjectName] = React.useState('');  
+	const [newSubjectCode,setNewSubjectCode] = React.useState('');
+
 	//Subject States
 	const [subjects,setSubjects]= React.useState([]);
 	
@@ -46,12 +57,23 @@ export const Body:React.FC<IBody>=(props:IBody)=>{
 										/>;
 			case 2: return <AddSubject	
 										Subjects={subjects}
+										FetchData={fetchData}
+										Column={column}
+										Header={header}
+										NameOfPage={nameOfPage}
+										TableHeight={tableHeight}
+										ModalIsOpen={modalIsOpen}
+										PostItem={postItem}
+										SetPostItem={setPostItem}
+										SetIsOpen={setIsOpen}
 										SetSubjects={setSubjects}
 										SubjectHandler={subjectHandler} 
-										ModalIsOpen={modalIsOpen}
 										ModalHandler={modalHandler} 
-										FetchData={fetchData}
 										SetFetchData={setFetchData}
+										SetColumn={setColumn}
+										SetHeader={setHeader}
+										SetNameOfPage={setNameOfPage}
+										SetTableHeight={setTableHeight}
 										/>;
 			case 3: return <AddUnit 	
 										Subjects={subjects}

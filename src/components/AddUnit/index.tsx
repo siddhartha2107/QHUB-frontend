@@ -23,7 +23,7 @@ export const AddUnit:React.FC<IaddUnit>=(props:IaddUnit)=>{
     const [column,setColumn] = React.useState([]);
     const [units,setUnits] = React.useState([]);
     const [selectedSubjectCode,setSelectedSubjectCode] = React.useState('')
-    const [noOfRow,setNoOfRow] = React.useState(3);
+    const [nameOfPage,setNameOfPage] = React.useState('unit');
     const [tableHeight,setTableHeight] = React.useState('40vh');
     //DropDown
     const [dropdown,setDropDown] = React.useState('');
@@ -142,7 +142,7 @@ export const AddUnit:React.FC<IaddUnit>=(props:IaddUnit)=>{
                             Data={units}
                             Columns={column}
                             TableHeight={tableHeight}
-                            NoOfRow={noOfRow}/>
+                            NameOfPage={nameOfPage}/>
                     <div id="unit-btm">
                         <button id="add-subject-btn" onClick={()=>setIsOpen(true)}>Add Subject</button>
                         {dropdown!='' && <MyModal  ModalIsOpen={modalIsOpen}

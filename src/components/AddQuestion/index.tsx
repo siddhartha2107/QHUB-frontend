@@ -24,7 +24,7 @@ export const AddQuestion:React.FC<IaddQuestion>=(props:IaddQuestion)=>{
     const [maxMarks, setMaxMarks] = React.useState('');
     const [minMarks, setMinMarks] = React.useState('');
     const [fetchData,setFetchData] = React.useState(0); //Controls Get call
-    const [noOfRow,setNoOfRow] = React.useState(5);
+    const [nameOfPage,setNameOfPage] = React.useState('question');
     const [subjectDefVal,setSubjectDefVal] = React.useState('Choose Subject');
     const [unitDefVal,setUnitDefVal] = React.useState('Choose Unit');
     
@@ -37,7 +37,6 @@ export const AddQuestion:React.FC<IaddQuestion>=(props:IaddQuestion)=>{
     const [selectedSubjectId,setSelectedSubjectId] = React.useState('')
     const [selectedSubjectCode,setSelectedSubjectCode] = React.useState('')
     const [selectedUnitId,setSelectedUnitId] = React.useState('')
-    const [selectedUnitCode,setSelectedUnitCode] = React.useState('')
     //ModalStates
     const [modalIsOpen,setIsOpen] = React.useState(false);
     const [postItem,setPostItem] = React.useState(0);
@@ -238,7 +237,7 @@ export const AddQuestion:React.FC<IaddQuestion>=(props:IaddQuestion)=>{
                             Data={questionList}
                             Columns={column}
                             TableHeight={tableHeight}
-                            NoOfRow={noOfRow}/>
+                            NameOfPage={nameOfPage}/>
                     <div id="question-btm">
                         <button id="add-subject-btn" onClick={()=>setIsOpen(true)}>Add Subject</button>
                         <MyModal  ModalIsOpen={modalIsOpen}
