@@ -241,7 +241,6 @@ export const AddQuestion:React.FC<IaddQuestion>=(props:IaddQuestion)=>{
                     <div id="question-btm">
                         <button id="add-subject-btn" onClick={()=>setIsOpen(true)}>Add Subject</button>
                         <MyModal  ModalIsOpen={modalIsOpen}
-                                PostItem={postItem}
                                 ModalHandler={modalHandler}
                                 ModalBody={modalBody}
                         />

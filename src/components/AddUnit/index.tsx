@@ -145,8 +145,7 @@ export const AddUnit:React.FC<IaddUnit>=(props:IaddUnit)=>{
                             NameOfPage={nameOfPage}/>
                     <div id="unit-btm">
                         <button id="add-subject-btn" onClick={()=>setIsOpen(true)}>Add Subject</button>
-                        {dropdown!='' && <MyModal  ModalIsOpen={modalIsOpen}
-                                PostItem={postItem}
+                        {dropdown!='' && <MyModal  ModalIsOpen={modalIsOpen}                                
                                 ModalHandler={modalHandler}
                                 ModalBody={modalBody}
                         />}

@@ -35,26 +35,24 @@ export const AddSubject:React.FC<IaddSubject>=(props:IaddSubject)=>{
 	props.SetTableHeight('48vh');
 
 	//ModalStates
-	// const [modalIsOpen,setIsOpen] = React.useState(false);
-	// const [postItem,setPostItem] = React.useState(0);
 	const [newSubjectName,setNewSubjectName] = React.useState('');  
 	const [newSubjectCode,setNewSubjectCode] = React.useState('');
 	const [modalBody,setModalBody] =React.useState(
 		<>
 			<span>Add the Subject by the subject id or subject code</span>
-				<div id="myModal-input">
-				<span>Subject Name</span>
-				<input type="text" id="add-subject-name" onChange={(e)=>setNewSubjectName(e.target.value)}></input>
-				<span>Subject Code</span>
-				<input type="text" id="add-subject-code" onChange={(e)=>setNewSubjectCode(e.target.value)}></input>
-				</div>
-				<div id="modal-submit"><button id="add-subject-btn" onClick={()=>{props.SetPostItem(props.PostItem+1)}}>Add Subject</button></div>
+			<div id="myModal-input">
+			<span>Subject Name</span>
+			<input type="text" id="add-subject-name" onChange={(e)=>setNewSubjectName(e.target.value)}></input>
+			<span>Subject Code</span>
+			<input type="text" id="add-subject-code" onChange={(e)=>setNewSubjectCode(e.target.value)}></input>
+			</div>
+			<div id="modal-submit"><button id="add-subject-btn" onClick={()=>{props.SetPostItem(props.PostItem+1)}}>Add Subject</button></div>
 		</>
 	);
 
 	//Modal Handler
 
-  //Call Post request to add new subject
+	//Call Post request to add new subject
   	React.useEffect(() => {
 		if(props.PostItem>0){
 			axios .post("http://localhost:8089/api/subject",
@@ -122,7 +120,6 @@ export const AddSubject:React.FC<IaddSubject>=(props:IaddSubject)=>{
 			<div id="subject-btm">
 				<button id="add-subject-btn" onClick={()=>props.SetIsOpen(true)}>Add Subject</button>
 				<MyModal  	ModalIsOpen={props.ModalIsOpen}
-							PostItem={props.PostItem}
 							ModalHandler={props.SetIsOpen}
 							ModalBody={modalBody}
 				/>

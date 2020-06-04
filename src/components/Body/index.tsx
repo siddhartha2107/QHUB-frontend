@@ -27,8 +27,6 @@ export const Body:React.FC<IBody>=(props:IBody)=>{
 	//Modal State
 	const [modalIsOpen,setIsOpen] = React.useState(false);
 	const [postItem,setPostItem] = React.useState(0);
-	const [newSubjectName,setNewSubjectName] = React.useState('');  
-	const [newSubjectCode,setNewSubjectCode] = React.useState('');
 
 	//Subject States
 	const [subjects,setSubjects]= React.useState([]);

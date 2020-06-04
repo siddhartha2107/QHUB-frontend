@@ -3,7 +3,6 @@ import './styles.css'
 import Modal from 'react-modal'
 export interface Imodal{
     ModalIsOpen:boolean,
-    PostItem:number,
     ModalHandler:(arg0:boolean)=>void;
     ModalBody:any
 }
